@@ -5,52 +5,49 @@
 **Koło Naukowe Nowoczesnej Infrastruktury IT, Wirtualizacji i Bezpieczeństwa**  
 *Wyższa Szkoła Kształcenia Zawodowego (WSKZ)*
 
-[![Status](https://img.shields.io/badge/Status-Aktywne-emerald?style=flat-square&logo=git)](https://github.com)
-[![Komunikacja](https://img.shields.io/badge/Zulip-Dołącz_do_dyskusji-blue?style=flat-square&logo=zulip)](https://zulip.com)
-[![Platforma](https://img.shields.io/badge/Infrastruktura-Proxmox_VE_8.x-orange?style=flat-square&logo=proxmox)](https://proxmox.com)
-[![Dokumentacja](https://img.shields.io/badge/Docs-Baza_Wiedzy-indigo?style=flat-square&logo=readthedocs)](https://github.com)
+[![Status](https://img.shields.io/badge/Status-Aktywne-0969da?style=flat-square)](https://github.com/wskz-devops-lab)
+[![Platforma](https://img.shields.io/badge/Infrastruktura-Proxmox_VE_8.x-d9381e?style=flat-square)](https://proxmox.com)
+[![Dokumentacja](https://img.shields.io/badge/Docs-Baza_Wiedzy-1a7f37?style=flat-square)](https://github.com/wskz-devops-lab/materialy-dydaktyczne)
 
 </div>
 
 ---
 
-## 🧭 O Kole Naukowym
+## Profil Koła Naukowego
 
-**DevOps & Virtualization Lab** zrzesza studentów i pasjonatów zainteresowanych praktyczną inżynierią systemową, automatyzacją wdrożeń, konteneryzacją oraz suwerenną infrastrukturą chmurową. Działamy w formule projektowo-warsztatowej, łącząc zadania inżynierskie z badaniami naukowymi.
+DevOps & Virtualization Lab zrzesza studentów oraz pasjonatów zainteresowanych inżynierią systemową, automatyzacją wdrożeń, konteneryzacją oraz niezależną infrastrukturą chmurową. Działalność koła koncentruje się na praktycznych warsztatach inżynierskich, realizacji projektów laboratoryjnych oraz badaniach nad wydajnością i bezpieczeństwem systemów zwirtualizowanych.
 
-### Główne Ścieżki Badawczo-Technologiczne:
-1. **Wirtualizacja i Zarządzanie Zasobami** — KVM, QEMU, Proxmox VE, technologia Golden Image i Linked Clones.
-2. **Konteneryzacja i Orkiestracja** — Docker, Podman, Kubernetes, izolacja usług, mikroserwisy.
-3. **Automatyzacja i CI/CD** — Infrastructure as Code (OpenTofu/Terraform), Ansible, potoki automatycznego testowania.
-4. **Prywatna Chmura i Self-Hosting** — Nextcloud, systemy backupu przyrostowego (Borg, Restic), sieci nakładkowe VPN (WireGuard, Tailscale).
-5. **Serwery AI i Lokalne Modele** — Uruchamianie i optymalizacja LLM (Ollama, vLLM, llama.cpp), techniki RAG, alokacja GPU.
-6. **Cyberbezpieczeństwo i Red Teaming** — Hardening systemów Linux, audyty podatności, segmentacja sieci, ochrona brzegu (WAF, Reverse Proxy).
+### Główne obszary techniczne i badawcze:
+1. **Wirtualizacja i zarządzanie zasobami:** KVM, QEMU, Proxmox VE, obrazy bazowe (Golden Image) oraz klonowanie dowiązane (Linked Clones / Copy-on-Write).
+2. **Konteneryzacja i orkiestracja:** Docker, Podman (rootless), Kubernetes, mikroserwisy oraz separacja środowisk uruchomieniowych.
+3. **Automatyzacja i CI/CD:** Podejście Infrastructure as Code (OpenTofu / Terraform), automatyzacja konfiguracji z wykorzystaniem Ansible, potoki testowania i walidacji kodu.
+4. **Prywatna infrastruktura i self-hosting:** Prywatne chmury danych (Nextcloud), systemy backupu przyrostowego (BorgBackup, Restic), bezpieczne sieci nakładkowe VPN (WireGuard, Tailscale).
+5. **Wdrożenia modeli sztucznej inteligencji:** Uruchamianie i optymalizacja modeli wielkich językowych (Ollama, vLLM, llama.cpp), techniki Retrieval-Augmented Generation (RAG) oraz zarządzanie alokacją akceleratorów obliczeniowych.
+6. **Cyberbezpieczeństwo i audyty systemowe:** Hardening systemów Linux, audyty podatności, segmentacja sieciowa, ochrona brzegu sieci (WAF, Reverse Proxy) oraz testy odpornościowe.
 
 ---
 
-## 🗂️ Struktura Repozytoriów Organizacji
+## Repozytoria Organizacji
 
-Nasz ekosystem podzielony jest na wyspecjalizowane repozytoria:
+Ekosystem koła podzielony jest na dedykowane repozytoria zadaniowe:
 
-| Repozytorium | Widoczność | Rola i Zawartość |
+| Repozytorium | Widoczność | Opis merytoryczny |
 | :--- | :---: | :--- |
-| **[`strona-kola`](../strona-kola)** | `Publiczne` | Oficjalna wizytówka WWW koła z interaktywnym terminalem (wdrażana przez GitHub Pages). |
-| **[`materialy-dydaktyczne`](../materialy-dydaktyczne)** | `Publiczne` | Baza wiedzy Docs-as-Code (MkDocs) — poradniki, instrukcje instalacji, karty projektów 1–16. |
-| **[`architektura-vdi-proxmox`](../architektura-vdi-proxmox)** | `Publiczne` | Praktyczne środowisko wirtualnych laboratoriów VDI, Golden Image, noVNC, Terraform i portal studenta. |
-| **[`pakiet-red-teaming`](../pakiet-red-teaming)** | `Publiczne` | Zautomatyzowany pakiet audytu bezpieczeństwa i testów penetracyjnych (5 filarów ochrony infrastruktury). |
-| **[`szablon-projektu-studenta`](../szablon-projektu-studenta)** | `Publiczne` | Starter dla członków koła do realizacji i dokumentowania własnych mini-projektów. |
+| **[`strona-kola`](https://github.com/wskz-devops-lab/strona-kola)** | Publiczne | Oficjalny portal internetowy koła naukowego (GitHub Pages). |
+| **[`materialy-dydaktyczne`](https://github.com/wskz-devops-lab/materialy-dydaktyczne)** | Publiczne | Dokumentacja techniczna w modelu Docs-as-Code (MkDocs) — instrukcje wdrożeniowe i katalog 16 projektów laboratoryjnych. |
+| **[`architektura-vdi-proxmox`](https://github.com/wskz-devops-lab/architektura-vdi-proxmox)** | Publiczne | Gotowa architektura wirtualnych laboratoriów VDI: szablony maszyn, bezklientowy pulpit noVNC, szablony Terraform i portal studenta. |
+| **[`pakiet-red-teaming`](https://github.com/wskz-devops-lab/pakiet-red-teaming)** | Publiczne | Narzędzie automatyzacji audytu bezpieczeństwa, weryfikujące izolację wirtualizacji w 5 krytycznych filarach ochrony. |
 
 ---
 
-## 💬 Komunikacja i Współpraca
+## Organizacja i Komunikacja
 
-Bieżąca praca koła, dyskusje techniczne oraz konsultacje prowadzone są w dedykowanych kanałach:
-- **Zulip**: Główna platforma komunikacyjna z podziałem na strumienie i wątki tematyczne.
-- **Spotkania laboratoryjne**: Zdalne warsztaty i demonstracje środowisk co 2 tygodnie.
-- **Konsultacje indywidualne**: System rezerwacji dyżurów projektowych.
+* **Zulip:** Podstawowa platforma wymiany informacji technicznych, zorganizowana w strumienie i wątki tematyczne.
+* **Spotkania laboratoryjne:** Zdalne warsztaty praktyczne oraz demonstracje środowisk realizowane w cyklu dwutygodniowym.
+* **Konsultacje projektowe:** Dyżury merytoryczne i przeglądy postępów prac zespołowych.
 
 ---
 
 <div align="center">
-<sub>Opiekun merytoryczny: <b>Przemysław Żarnecki</b> · Koło Naukowe WSKZ © 2026</sub>
+<sub>Koło Naukowe DevOps & Virtualization Lab · Wyższa Szkoła Kształcenia Zawodowego</sub>
 </div>
