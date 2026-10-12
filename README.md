@@ -1,4 +1,9 @@
-# .github (Profil Organizacji)
+# Repozytorium Specjalne .github (Profil Organizacji)
 
-To repozytorium odpowiada za stronę główną profilu organizacji na GitHubie.
-Główna zawartość znajduje się w pliku `profile/README.md`.
+Niniejsze repozytorium odpowiada za stronę główną profilu organizacji `wskz-devops-lab` na platformie GitHub.
+
+## Struktura Repozytorium
+
+- **`profile/README.md`:** Główny plik profilowy wyświetlany na stronie organizacji.
+- **`narzedzia/synchronizuj_github.sh`:** Skrypt automatyzujący tworzenie i synchronizację repozytoriów organizacji z wykorzystaniem GitHub CLI.
+- **`narzedzia/INSTRUKCJA_SKRYPTU.md`:** Szczegółowa dokumentacja inżynierska i opis działania skryptu automatyzacji.
