@@ -43,6 +43,7 @@ Ekosystem koła podzielony jest na dedykowane repozytoria zadaniowe:
 ## Organizacja i Komunikacja
 
 * **Zulip:** Podstawowa platforma wymiany informacji technicznych, zorganizowana w strumienie i wątki tematyczne.
+  - Link z zaproszeniem dla członków koła: [Dołącz do przestrzeni Zulip](https://zullip.zarnecki.org/join/yzyh6hrc6i5vro5clnl3uzyb/)
 * **Spotkania laboratoryjne:** Zdalne warsztaty praktyczne oraz demonstracje środowisk realizowane w cyklu dwutygodniowym.
 * **Konsultacje projektowe:** Dyżury merytoryczne i przeglądy postępów prac zespołowych.
 
