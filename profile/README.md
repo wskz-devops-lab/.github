@@ -36,7 +36,8 @@ Nasz ekosystem podzielony jest na wyspecjalizowane repozytoria:
 | :--- | :---: | :--- |
 | **[`strona-kola`](../strona-kola)** | `Publiczne` | Oficjalna wizytówka WWW koła z interaktywnym terminalem (wdrażana przez GitHub Pages). |
 | **[`materialy-dydaktyczne`](../materialy-dydaktyczne)** | `Publiczne` | Baza wiedzy Docs-as-Code (MkDocs) — poradniki, instrukcje instalacji, karty projektów 1–16. |
-| **[`infrastruktura-badawcza-proxmox`](../infrastruktura-badawcza-proxmox)** | `Prywatne / Publiczne` | Kod Terraform/OpenTofu, szablony Golden Image, Portal VDI oraz pakiet audytów Red Team. |
+| **[`architektura-vdi-proxmox`](../architektura-vdi-proxmox)** | `Publiczne` | Praktyczne środowisko wirtualnych laboratoriów VDI, Golden Image, noVNC, Terraform i portal studenta. |
+| **[`pakiet-red-teaming`](../pakiet-red-teaming)** | `Publiczne` | Zautomatyzowany pakiet audytu bezpieczeństwa i testów penetracyjnych (5 filarów ochrony infrastruktury). |
 | **[`szablon-projektu-studenta`](../szablon-projektu-studenta)** | `Publiczne` | Starter dla członków koła do realizacji i dokumentowania własnych mini-projektów. |
 
 ---
