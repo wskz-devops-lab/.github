@@ -40,8 +40,9 @@ REPOS=(
     "repozytoria/01_profil_organizacji|.github|public|Profil i strona główna organizacji Koła Naukowego WSKZ"
     "repozytoria/02_materialy_dydaktyczne|materialy-dydaktyczne|public|Baza wiedzy Docs-as-Code (MkDocs) - projekty 1-16 i poradniki"
     "repozytoria/03_strona_kola|strona-kola|public|Publiczny portal WWW koła naukowego (GitHub Pages)"
-    "repozytoria/04_architektura_vdi|architektura-vdi-proxmox|public|Praktyczna architektura wirtualnych laboratoriów VDI na Proxmox VE (Golden Image, noVNC, Terraform)"
+    "repozytoria/04_architektura_proxmox|architektura-proxmox|public|Uniwersalna architektura wirtualizacji, klastrów i laboratoriów na Proxmox VE (KVM, LXC, Ceph, ZFS, SDN, GPU Passthrough, Ansible, Terraform)"
     "repozytoria/05_pakiet_red_teaming|pakiet-red-teaming|public|Zautomatyzowany pakiet audytu bezpieczeństwa i testów Red Teaming (5 filarów ochrony)"
+    "repozytoria/06_architektura_opennebula|architektura-vdi-opennebula|public|Suwerenna architektura chmurowa VDI na OpenNebula i AlmaLinux 9 (Track B, Golden Image, Terraform, noVNC)"
 )
 
 for entry in "${REPOS[@]}"; do
