@@ -35,7 +35,8 @@ Ekosystem koła podzielony jest na dedykowane repozytoria zadaniowe:
 | :--- | :---: | :--- |
 | **[`strona-kola`](https://github.com/wskz-devops-lab/strona-kola)** | Publiczne | Oficjalny portal internetowy koła naukowego (GitHub Pages). |
 | **[`materialy-dydaktyczne`](https://github.com/wskz-devops-lab/materialy-dydaktyczne)** | Publiczne | Dokumentacja techniczna w modelu Docs-as-Code (MkDocs) — instrukcje wdrożeniowe i katalog 16 projektów laboratoryjnych. |
-| **[`architektura-vdi-proxmox`](https://github.com/wskz-devops-lab/architektura-vdi-proxmox)** | Publiczne | Gotowa architektura wirtualnych laboratoriów VDI: szablony maszyn, bezklientowy pulpit noVNC, szablony Terraform i portal studenta. |
+| **[`architektura-vdi-proxmox`](https://github.com/wskz-devops-lab/architektura-vdi-proxmox)** | Publiczne | Architektura wirtualnych laboratoriów VDI na Proxmox VE (Track A): szablony Golden Image, noVNC, Terraform i portal studenta. |
+| **[`architektura-vdi-opennebula`](https://github.com/wskz-devops-lab/architektura-vdi-opennebula)** | Publiczne | Suwerenna architektura chmurowa VDI na OpenNebula i AlmaLinux 9 (Track B): klonowanie CoW, orkiestracja Ansible/Terraform, portal laboratoryjny. |
 | **[`pakiet-red-teaming`](https://github.com/wskz-devops-lab/pakiet-red-teaming)** | Publiczne | Narzędzie automatyzacji audytu bezpieczeństwa, weryfikujące izolację wirtualizacji w 5 krytycznych filarach ochrony. |
 
 ---
