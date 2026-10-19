@@ -1,0 +1,52 @@
+name: "⚙️ Moduł Infrastruktury / Automatyzacja IaC"
+description: "Zadanie wdrożenia lub ulepszenia kodu Ansible, OpenTofu lub konfiguracji klastra"
+title: "[INFRA]: "
+labels: ["infrastructure", "iac"]
+body:
+  - type: input
+    id: feature-title
+    attributes:
+      label: Nazwa modułu / skryptu
+      placeholder: np. Playbook Ansible do zautomatyzowanego backupu przez BorgBackup
+    validations:
+      required: true
+  - type: dropdown
+    id: target-platform
+    attributes:
+      label: Środowisko docelowe
+      options:
+        - "Proxmox VE 8.x (KVM / LXC / Ceph / SDN)"
+        - "OpenNebula 6.x (VDI / Golden Image)"
+        - "Host Linux (Debian 12 / AlmaLinux 9)"
+        - "Sieć / VPN (SDN / VLAN / WireGuard / Tailscale)"
+        - "Modele AI (Ollama / vLLM / llama.cpp)"
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Cel i oczekiwany rezultat
+      description: Co ten moduł ma zautomatyzować i jak wpłynie na środowisko koła?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Kryteria odbioru (Definition of Done)
+      value: |
+        - [ ] Skrypt / playbook uruchamia się bez błędów w środowisku testowym
+        - [ ] Składnia zweryfikowana linterem (np. ansible-lint, shellcheck, terraform fmt)
+        - [ ] Przygotowano instrukcję uruchomienia (README w module)
+        - [ ] Brak zahardkodowanych haseł i kluczy (zmienne w .env lub vault)
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Szacowany poziom trudności
+      options:
+        - "🟢 Początkujący (Good First Issue)"
+        - "🟡 Średniozaawansowany"
+        - "🔴 Zaawansowany (Wymaga konsultacji z mentorem)"
+    validations:
+      required: true

@@ -1,0 +1,56 @@
+name: "📚 Nowe ćwiczenie / Poradnik laboratoryjny"
+description: "Zaproponuj nową instrukcję lub projekt do bazy wiedzy Docs-as-Code"
+title: "[LAB]: "
+labels: ["docs", "materialy-dydaktyczne"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Dzięki za chęć rozwoju bazy wiedzy **DevOps & Virtualization Lab (WSKZ)**!
+        Wypełnij poniższe pola, aby inni studenci i mentorzy mogli zapoznać się z propozycją.
+  - type: input
+    id: topic
+    attributes:
+      label: Temat ćwiczenia / laboratorium
+      placeholder: np. Konfiguracja WireGuard w kontenerze LXC z Proxmox SDN
+    validations:
+      required: true
+  - type: checkboxes
+    id: track
+    attributes:
+      label: Ścieżka tematyczna
+      options:
+        - label: "Track A: Wirtualizacja & Proxmox VE (KVM, LXC, Ceph)"
+        - label: "Track B: Chmura & OpenNebula VDI (AlmaLinux 9)"
+        - label: "Infrastruktura as Code (Ansible / OpenTofu / Terraform)"
+        - label: "Cyberbezpieczeństwo & Audyt (Red Teaming)"
+        - label: "Wdrażanie modeli AI (Ollama / vLLM / RAG)"
+        - label: "Podstawy Linux / Sieci / Konteneryzacja"
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Wymagania wstępne i zasoby sprzętowe
+      description: Co jest potrzebne do wykonania ćwiczenia?
+      value: |
+        - Minimalny RAM / vCPU: 
+        - Wymagany system bazowy (Debian 12 / AlmaLinux 9 / Ubuntu): 
+        - Wymagane narzędzia (Docker / Podman / Ansible): 
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Konspekt i kroki do wykonania
+      placeholder: Wypisz w punktach, co student ma skonfigurować i jaki ma być końcowy efekt ćwiczenia.
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Szacowany poziom trudności
+      options:
+        - "🟢 Początkujący (Good First Issue)"
+        - "🟡 Średniozaawansowany"
+        - "🔴 Zaawansowany"
+    validations:
+      required: true
