@@ -15,7 +15,7 @@
 
 ## Profil Koła Naukowego
 
-DevOps & Virtualization Lab zrzesza studentów oraz pasjonatów zainteresowanych inżynierią systemową, automatyzacją wdrożeń, konteneryzacją oraz niezależną infrastrukturą chmurową. Działalność koła koncentruje się na praktycznych warsztatach inżynierskich, realizacji projektów laboratoryjnych oraz badaniach nad wydajnością i bezpieczeństwem systemów zwirtualizowanych.
+DevOps & Virtualization Lab zrzesza studentów oraz pasjonatów zainteresowanych administracją systemami, automatyzacją wdrożeń, konteneryzacją oraz niezależną infrastrukturą chmurową. Działalność koła koncentruje się na praktycznych warsztatach, realizacji projektów laboratoryjnych oraz badaniach nad wydajnością i bezpieczeństwem systemów zwirtualizowanych.
 
 ### Główne obszary techniczne i badawcze:
 1. **Wirtualizacja i zarządzanie zasobami:** KVM, QEMU, Proxmox VE, obrazy bazowe (Golden Image) oraz klonowanie dowiązane (Linked Clones / Copy-on-Write).
@@ -37,7 +37,8 @@ Ekosystem koła podzielony jest na dedykowane repozytoria zadaniowe:
 | **[`materialy-dydaktyczne`](https://github.com/wskz-devops-lab/materialy-dydaktyczne)** | Publiczne | Dokumentacja techniczna w modelu Docs-as-Code (MkDocs) — instrukcje wdrożeniowe i katalog 16 projektów laboratoryjnych. |
 | **[`architektura-proxmox`](https://github.com/wskz-devops-lab/architektura-proxmox)** | Publiczne | Uniwersalna architektura wirtualizacji, klastrów i laboratoriów na Proxmox VE (Track A): KVM, LXC (nesting), ZFS/Ceph, SDN, GPU Passthrough, IaC. |
 | **[`architektura-vdi-opennebula`](https://github.com/wskz-devops-lab/architektura-vdi-opennebula)** | Publiczne | Suwerenna architektura chmurowa VDI na OpenNebula i AlmaLinux 9 (Track B): klonowanie CoW, orkiestracja Ansible/Terraform, portal laboratoryjny. |
-| **[`pakiet-red-teaming`](https://github.com/wskz-devops-lab/pakiet-red-teaming)** | Publiczne | Narzędzie automatyzacji audytu bezpieczeństwa, weryfikujące izolację wirtualizacji w 5 krytycznych filarach ochrony. |
+| **[`pakiet-red-teaming`](https://github.com/wskz-devops-lab/pakiet-red-teaming)** | Publiczne | Narzędzie automatyzacji audytu bezpieczeństwa, weryfikujące izolację wirtualizacji w 5 kluczowych obszarach ochrony. |
+| **[`klaster-gpu-ai`](https://github.com/wskz-devops-lab/klaster-gpu-ai)** | Publiczne | Rozproszony klaster GPU AI i brama Campus AI Gateway (Ollama, LiteLLM, Open WebUI) [W rozwoju]. |
 
 ---
 
