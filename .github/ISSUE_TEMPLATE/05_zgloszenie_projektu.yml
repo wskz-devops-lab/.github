@@ -8,6 +8,11 @@ body:
       value: |
         ### Witaj w inkubatorze projektów Koła Naukowego WSKZ! 🎉
         Wybierz projekt, który chcesz rozwijać w ramach laboratorium. Możesz realizować go samodzielnie lub w 2–3 osobowym zespole.
+        
+        #### 🧭 Co zrobić po wysłaniu tego formularza?
+        1. **Utwórz repozytorium w organizacji:** Wejdź na [github.com/wskz-devops-lab](https://github.com/wskz-devops-lab) ➔ kliknij zielony przycisk **`New repository`** (nazwij je wg wzorca: `projekt-<tematyka>-<twoj-login>`).
+        2. **Wklej link:** Wklej link do repozytorium w komentarzu pod utworzonym Issue.
+        3. **Rozwijaj projekt:** Sklonuj repo na komputer, dodawaj pliki (`compose.yaml`, skrypty, `README.md`), a w komentarzach pytaj o wszystko, w czym potrzebujesz pomocy!
   - type: input
     id: github_nick
     attributes:
@@ -58,7 +63,7 @@ body:
       label: Repozytorium dla projektu
       description: Jak chcesz utworzyć repozytorium?
       options:
-        - "Utworzę repozytorium samodzielnie w organizacji wskz-devops-lab (z szablonu)"
+        - "Utworzę repozytorium samodzielnie w organizacji wskz-devops-lab"
         - "Mam już utworzone repozytorium (podam link poniżej)"
         - "Proszę o pomoc w utworzeniu repozytorium"
     validations:

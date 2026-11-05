@@ -42,11 +42,19 @@ Ekosystem koła podzielony jest na dedykowane repozytoria zadaniowe:
 
 ---
 
+## Wybór i Zgłaszanie Projektów
+
+Każdy członek koła realizuje wybrany projekt laboratoryjny w dedykowanym repozytorium w organizacji `wskz-devops-lab`.
+
+👉 **Formularz zgłoszeniowy w Issues:** [**Kliknij tutaj, aby wybrać lub zgłosić projekt**](https://github.com/wskz-devops-lab/.github/issues/new?template=05_zgloszenie_projektu.yml)  
+📖 **Instrukcja dla studentów krok po kroku:** [**Jak założyć repozytorium i pracować z projektem**](https://github.com/wskz-devops-lab/.github/blob/main/INSTRUKCJA_DLA_STUDENTOW.md)
+
+---
+
 ## Organizacja i Komunikacja
 
 * 📖 **Przewodnik dla studentów:** [Instrukcja: jak korzystać z GitHuba, brać zadania i zgłaszać PR](https://github.com/wskz-devops-lab/.github/blob/main/INSTRUKCJA_DLA_STUDENTOW.md)
-* **Zulip:** Podstawowa platforma wymiany informacji technicznych oraz wideokonferencji (wątek `spotkania online`).
-  - Link z zaproszeniem dla członków koła: [Dołącz do przestrzeni Zulip](https://zullip.zarnecki.org/join/yzyh6hrc6i5vro5clnl3uzyb/)
+* **Zulip:** Podstawowa platforma wymiany informacji technicznych oraz wideokonferencji (indywidualne zaproszenie przesyła opiekun koła drogą mailową).
 * **Spotkania laboratoryjne:** Zdalne warsztaty praktyczne oraz demonstracje środowisk realizowane w cyklu dwutygodniowym bezpośrednio w Zulipie (zapasowo: Nextcloud Talk).
 * **Konsultacje projektowe:** Dyżury merytoryczne i przeglądy postępów prac zespołowych (rezerwacja w kalendarzu chmury).
 

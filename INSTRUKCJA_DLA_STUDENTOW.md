@@ -9,7 +9,7 @@ Ten przewodnik wyjaśnia krok po kroku, jak korzystamy z GitHuba, jak brać udzi
 
 ### 1. Komunikacja i spotkania (Zulip)
 Naszym głównym centrum dowodzenia, dyskusji technicznych i spotkań wideo jest **Zulip**.  
-👉 **Dołącz tutaj:** [Zaproszenie do przestrzeni Zulip Koła](https://zullip.zarnecki.org/join/yzyh6hrc6i5vro5clnl3uzyb/)
+* **Dostęp do platformy:** Imienne zaproszenie do przestrzeni Zulip otrzymasz bezpośrednio od opiekuna koła na Twój adres e-mail podany przy zapisie.
 * Po dołączeniu przywitaj się na kanale ogólnym i napisz, jakie obszary Cię interesują (Proxmox, wirtualizacja, kontenery, cyberbezpieczeństwo, Docs-as-Code czy web-dev).
 * **Spotkania online:** Warsztaty i spotkania koła odbywają się bezpośrednio w Zulipie – w dedykowanym wątku **`spotkania online`** (uruchamiane przez wbudowaną integrację wideo). Awaryjnie rezerwowany jest pokój w Nextcloud Talk.
 
@@ -21,16 +21,16 @@ Naszym głównym centrum dowodzenia, dyskusji technicznych i spotkań wideo jest
 
 ---
 
-## 🎯 Krok 2: Gdzie szukać zadań?
+## 🎯 Krok 2: Gdzie szukać zadań i jak wybrać projekt?
 
-1. Przejdź do zakładki **Projects** w organizacji: [Tablica Projektów Koła](https://github.com/orgs/wskz-devops-lab/projects).
-2. Szukaj zadań z etykietami:
+1. Przejdź do formularza zgłoszeniowego: 👉 [**Wybierz lub zgłoś projekt w Issues**](https://github.com/wskz-devops-lab/.github/issues/new?template=05_zgloszenie_projektu.yml).
+2. Szukaj zadań i zgłoszeń z etykietami:
    * `good first issue` – idealne, proste zadania na start (np. poprawka w dokumentacji, prosty skrypt).
    * `🟢 Początkujący` – nie wymagają zaawansowanej wiedzy.
 3. Gdy wybierzesz zadanie:
    * Zostaw krótki komentarz w zgłoszeniu (np. *„Chętnie się tym zajmę!”*).
-   * Przypisz się do zadania (Assignee) i przesuń kartę do kolumny **W trakcie (In Progress)**.
-   * Jeśli utkniesz – napisz na Zulipie w wątku projektu!
+   * Przypisz się do zadania (Assignee).
+   * Jeśli utkniesz – napisz na Zulipie lub w komentarzu do Issue!
 
 ---
 
@@ -102,17 +102,21 @@ Możesz wybrać jeden z sugerowanych projektów wstępnych:
 * **S5: Lab detekcji zagrożeń i cyberbezpieczeństwa (Wazuh / Hardening / AD)** — analiza logów, wykrywanie incydentów i utwardzanie systemów.
 * **Własny projekt autorski:** Masz pomysł ze swojej pracy, hobby lub uczelni? Realizuj go w ramach koła!
 
-### 2. Utwórz repozytorium w organizacji
-1. Przejdź do [github.com/wskz-devops-lab](https://github.com/wskz-devops-lab) i kliknij zielony przycisk **`New repository`** (lub użyj szablonu projektu, jeśli jest dostępny).
+### 2. Zgłoś projekt w Issues koła
+1. Otwórz formularz zgłoszeniowy: 👉 [**Zgłoszenie projektu w Issues**](https://github.com/wskz-devops-lab/.github/issues/new?template=05_zgloszenie_projektu.yml).
+2. Wybierz swój projekt z listy i opisz w 2–3 zdaniach, co planujesz zrealizować.
+
+### 3. Utwórz repozytorium w organizacji
+1. Przejdź do [github.com/wskz-devops-lab](https://github.com/wskz-devops-lab) i kliknij zielony przycisk **`New repository`**.
 2. Jako **Owner** upewnij się, że wybrana jest organizacja `wskz-devops-lab`.
 3. Nazwij repozytorium według standardu: `projekt-<tematyka>-<twoj-login>` (np. `projekt-homelab-student1`).
-4. Ustaw widoczność jako **Public** i zaznacz dodanie pliku `README.md`.
+4. Zaznacz dodanie pliku `README.md` oraz widoczność (Private lub Public).
+5. Wklej link do nowo utworzonego repozytorium w komentarzu pod swoim zgłoszeniem w Issues.
 
-### 3. Zgłoś projekt na tablicy koła
-1. Przejdź do zakładki **Issues** w repozytorium [`.github`](https://github.com/wskz-devops-lab/.github/issues).
-2. Kliknij **New issue** i wybierz szablon: **🚀 Zgłoszenie projektu studenckiego / Inkubator**.
-3. Wklej link do swojego nowego repozytorium i opisz w 2-3 zdaniach, co planujesz w nim zbudować.
-4. Opiekun i koledzy z koła będą mogli śledzić Twoje postępy, pomagać w problemach i robić przegląd kodu (Code Review)!
+### 4. Co robić dalej? (Praca nad projektem)
+1. **Sklonuj repozytorium:** `git clone git@github.com:wskz-devops-lab/projekt-....git`
+2. **Dodaj pliki:** Uzupełnij `README.md` o cel i instrukcję uruchomienia, wrzucaj pliki konfiguracyjne (`compose.yaml`, skrypty, playbooki).
+3. **Zadawaj pytania i konsultuj:** Twoje zgłoszenie w Issues to otwarty wątek dyskusyjny – pytaj tam o napotkane problemy, a na spotkaniach będziemy omawiać postępy!
 
 ---
 
