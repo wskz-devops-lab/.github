@@ -7,10 +7,11 @@ Ten przewodnik wyjaśnia krok po kroku, jak korzystamy z GitHuba, jak brać udzi
 
 ## 🧭 Krok 1: Twoje konto i narzędzia
 
-### 1. Komunikacja (Zulip)
-Naszym głównym centrum dowodzenia i dyskusji technicznych jest **Zulip**.  
+### 1. Komunikacja i spotkania (Zulip)
+Naszym głównym centrum dowodzenia, dyskusji technicznych i spotkań wideo jest **Zulip**.  
 👉 **Dołącz tutaj:** [Zaproszenie do przestrzeni Zulip Koła](https://zullip.zarnecki.org/join/yzyh6hrc6i5vro5clnl3uzyb/)
 * Po dołączeniu przywitaj się na kanale ogólnym i napisz, jakie obszary Cię interesują (Proxmox, wirtualizacja, kontenery, cyberbezpieczeństwo, Docs-as-Code czy web-dev).
+* **Spotkania online:** Warsztaty i spotkania koła odbywają się bezpośrednio w Zulipie – w dedykowanym wątku **`spotkania online`** (uruchamiane przez wbudowaną integrację wideo). Awaryjnie rezerwowany jest pokój w Nextcloud Talk.
 
 ### 2. GitHub i Zespół Studenci
 * Otrzymasz e-mail z zaproszeniem do organizacji **`wskz-devops-lab`**.
