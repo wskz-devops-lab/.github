@@ -53,6 +53,10 @@ def main():
         print(f"Użytkownik {issue_user} nie jest członkiem koła. Issue #{issue_number} zamknięte.")
         sys.exit(0)
 
+    # 1a. Upewnij się, że członek koła należy do zespołu "studenci" (idempotentne)
+    if issue_user.lower() != "pzarnecki":
+        run_cmd(["gh", "api", "-X", "PUT", f"orgs/{org}/teams/studenci/memberships/{issue_user}", "-f", "role=member"], check=False)
+
     # 2. Parsowanie odpowiedzi z formularza Issue
     def extract_field(header):
         pattern = rf"### {header}\s*\n+([^\n#]+)"

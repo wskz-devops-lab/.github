@@ -1,0 +1,31 @@
+name: "Synchronizacja zespołu Studenci"
+
+# Codziennie dopisuje do zespołu "studenci" każdego członka organizacji,
+# który w nim jeszcze nie jest (właściciele organizacji są pomijani).
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dopisz brakujących członków do zespołu
+        env:
+          GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          ORG: wskz-devops-lab
+          TEAM: studenci
+        run: |
+          set -euo pipefail
+          members=$(gh api "orgs/$ORG/members?role=member" --paginate --jq '.[].login' | sort)
+          in_team=$(gh api "orgs/$ORG/teams/$TEAM/members" --paginate --jq '.[].login' | sort)
+          missing=$(comm -23 <(echo "$members") <(echo "$in_team") || true)
+          if [ -z "$missing" ]; then
+            echo "Wszyscy członkowie są w zespole $TEAM."
+            exit 0
+          fi
+          for user in $missing; do
+            echo "Dodaję $user do zespołu $TEAM"
+            gh api -X PUT "orgs/$ORG/teams/$TEAM/memberships/$user" -f role=member > /dev/null
+          done
