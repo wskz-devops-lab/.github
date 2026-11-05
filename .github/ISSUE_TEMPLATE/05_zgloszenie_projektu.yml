@@ -1,5 +1,5 @@
 name: "🚀 Zgłoszenie projektu studenckiego / Inkubator"
-description: "Zgłoś wybór projektu startowego, projektu z bazy wiedzy lub własnego pomysłu"
+description: "Wybierz projekt startowy, temat z Bazy Wiedzy lub zgłoś własny pomysł"
 title: "[PROJEKT]: "
 labels: ["projekt-studenta", "inkubator"]
 body:
@@ -7,32 +7,20 @@ body:
     attributes:
       value: |
         ### Witaj w inkubatorze projektów Koła Naukowego WSKZ! 🎉
-        Wybierz projekt, który chcesz rozwijać w ramach laboratorium. Możesz realizować go samodzielnie lub w 2–3 osobowym zespole.
+        *Formularz dostępny dla członków koła wskz-devops-lab. Twoje konto GitHub zostanie powiązane automatycznie.*
         
-        #### 🧭 Co zrobić po wysłaniu tego formularza?
-        1. **Utwórz repozytorium w organizacji:** Wejdź na [github.com/wskz-devops-lab](https://github.com/wskz-devops-lab) ➔ kliknij zielony przycisk **`New repository`** (nazwij je wg wzorca: `projekt-<tematyka>-<twoj-login>`).
-        2. **Wklej link:** Wklej link do repozytorium w komentarzu pod utworzonym Issue.
-        3. **Rozwijaj projekt:** Sklonuj repo na komputer, dodawaj pliki (`compose.yaml`, skrypty, `README.md`), a w komentarzach pytaj o wszystko, w czym potrzebujesz pomocy!
-  - type: input
-    id: github_nick
-    attributes:
-      label: Twój login na GitHubie (i opcjonalnie imię)
-      placeholder: np. @twoj-nick
-    validations:
-      required: true
+        Wybierz temat, który chcesz rozwijać. Bot koła może **automatycznie utworzyć dedykowane repozytorium** w organizacji i nadać Ci do niego uprawnienia!
   - type: dropdown
-    id: project_starter
+    id: project_choice
     attributes:
-      label: Wybrany projekt / ścieżka
-      description: Wybierz projekt startowy (S1–S5), projekt z Bazy Wiedzy (1–16) lub zgłoś własny pomysł
+      label: Wybierz projekt lub ścieżkę
+      description: Wybierz sugerowany projekt startowy (S1–S5), projekt z Bazy Wiedzy (1–16) lub własny pomysł
       options:
-        - "--- PROJEKTY STARTOWE (NA POCZĄTEK) ---"
         - "S1: Własny Homelab i konteneryzacja (Docker Compose / Podman)"
         - "S2: Bezpieczny dostęp zdalny do laba (Tailscale / WireGuard + Caddy/Traefik)"
         - "S3: Lokalny serwer sztucznej inteligencji (Ollama + Open WebUI / LiteLLM / RAG)"
         - "S4: Monitoring i obserwowalność infrastruktury (Prometheus + Grafana)"
         - "S5: Lab cyberbezpieczeństwa i detekcji zagrożeń (Wazuh / Hardening / AD)"
-        - "--- PROJEKTY Z BAZY WIEDZY KOŁA (PROJEKTY 1–16) ---"
         - "Projekt 01: Wirtualizacja firmowego środowiska roboczego (KVM/QEMU, Proxmox VE)"
         - "Projekt 02: Konteneryzacja małej usługi biznesowej (Docker, Podman, Compose)"
         - "Projekt 03: Automatyczny build po zmianach w repozytorium (CI/CD, GitHub Actions)"
@@ -45,10 +33,38 @@ body:
         - "Projekt 11: Serwer AI i akceleracja GPU (Ollama, vLLM, RAG)"
         - "Projekt 12: Rozproszony klaster GPU AI (Campus Gateway, LiteLLM)"
         - "Projekt 16: Audyt bezpieczeństwa i Red Teaming (Hardening, CIS)"
-        - "--- WŁASNY PROJEKT AUTORSKI ---"
         - "Własny pomysł na projekt / homelab / zagadnienie ze środowiska zawodowego"
     validations:
       required: true
+  - type: dropdown
+    id: repo_create_mode
+    attributes:
+      label: Automatyczne utworzenie repozytorium przez bota
+      description: Czy chcesz, aby bot koła automatycznie utworzył dla Ciebie repozytorium w organizacji?
+      options:
+        - "Tak — proszę bota o automatyczne założenie repozytorium"
+        - "Nie — utworzę repozytorium w organizacji samodzielnie"
+    validations:
+      required: true
+  - type: dropdown
+    id: repo_visibility
+    attributes:
+      label: Widoczność repozytorium projektu
+      description: Wybierz, kto ma mieć dostęp do Twojego kodu
+      options:
+        - "Prywatne (Private — dostęp masz tylko Ty i opiekun koła)"
+        - "Dla członków koła (Internal — widoczne dla wszystkich zalogowanych członków koła)"
+        - "Publiczne (Public — publicznie widoczne w internecie)"
+    validations:
+      required: true
+  - type: input
+    id: repo_keyword
+    attributes:
+      label: Krótkie słowo kluczowe do nazwy repozytorium (opcjonalnie)
+      description: Repozytorium otrzyma nazwę: projekt-<slowo_klucz>-<twoj_login>
+      placeholder: np. docker-homelab, wazuh, ollama, monitoring
+    validations:
+      required: false
   - type: textarea
     id: goal_and_scope
     attributes:
@@ -57,24 +73,6 @@ body:
       placeholder: np. Chcę postawić na domowym terminalu Proxmox z kilkoma kontenerami LXC/Docker (Nextcloud, Pi-hole), zabezpieczyć dostęp przez WireGuard i zautomatyzować backup.
     validations:
       required: true
-  - type: dropdown
-    id: repo_mode
-    attributes:
-      label: Repozytorium dla projektu
-      description: Jak chcesz utworzyć repozytorium?
-      options:
-        - "Utworzę repozytorium samodzielnie w organizacji wskz-devops-lab"
-        - "Mam już utworzone repozytorium (podam link poniżej)"
-        - "Proszę o pomoc w utworzeniu repozytorium"
-    validations:
-      required: true
-  - type: input
-    id: repo_url
-    attributes:
-      label: Link do repozytorium (jeśli już istnieje)
-      placeholder: https://github.com/wskz-devops-lab/projekt-...
-    validations:
-      required: false
   - type: dropdown
     id: work_mode
     attributes:

@@ -1,4 +1,4 @@
-name: "Powitanie w projekcie"
+name: "Obsługa zgłoszenia projektu studenckiego"
 
 on:
   issues:
@@ -6,36 +6,26 @@ on:
 
 permissions:
   issues: write
+  contents: write
 
 jobs:
-  welcome:
+  process-issue:
     if: contains(github.event.issue.labels.*.name, 'projekt-studenta') || startsWith(github.event.issue.title, '[PROJEKT]')
     runs-on: ubuntu-latest
     steps:
-      - name: Dodaj komentarz z instrukcją
-        uses: actions/github-script@v7
+      - name: Pobierz kod repozytorium
+        uses: actions/checkout@v4
+
+      - name: Konfiguracja Pythona
+        uses: actions/setup-python@v5
         with:
-          script: |
-            const user = context.payload.issue.user.login;
-            const body = `Cześć @${user}! 👋\n\n` +
-              `Dzięki za zgłoszenie projektu do **Inkubatora DevOps & Virtualization Lab (WSKZ)**! 🚀\n\n` +
-              `### 📋 Twoje kolejne kroki:\n` +
-              `1. **Utwórz swoje repozytorium w organizacji:**\n` +
-              `   * Przejdź do: https://github.com/organizations/wskz-devops-lab/repositories/new\n` +
-              `   * Jako **Owner** upewnij się, że wybrana jest organizacja \`wskz-devops-lab\`\n` +
-              `   * Nazwij repozytorium wg standardu: \`projekt-<temat>-${user}\` (np. \`projekt-docker-${user}\`)\n` +
-              `   * Zaznacz dodanie pliku **README.md**\n` +
-              `2. **Wklej link do swojego nowego repozytorium w komentarzu poniżej**\n` +
-              `3. **Sklonuj repozytorium na swój komputer:**\n` +
-              `   \`\`\`bash\n` +
-              `   git clone git@github.com:wskz-devops-lab/projekt-<temat>-${user}.git\n` +
-              `   \`\`\`\n` +
-              `4. **Rozpocznij pracę:** przygotuj krótki konspekt w \`README.md\`, dodawaj pliki konfiguracyjne (\`compose.yaml\`, skrypty) i commituj zmiany.\n\n` +
-              `*W razie pytań lub problemów ze środowiskiem pisz śmiało w komentarzach tutaj lub na Zulipie! Powodzenia!* 💪`;
-            
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.payload.issue.number,
-              body: body
-            });
+          python-version: "3.11"
+
+      - name: Przetwórz zgłoszenie i utwórz repozytorium
+        env:
+          GH_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN || secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_USER: ${{ github.event.issue.user.login }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python3 .github/scripts/process_project_issue.py
