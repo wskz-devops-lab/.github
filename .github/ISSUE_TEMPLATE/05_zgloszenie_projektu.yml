@@ -1,5 +1,5 @@
 name: "🚀 Zgłoszenie projektu studenckiego / Inkubator"
-description: "Zgłoś swój projekt wstępny lub autorski i połącz go ze swoim repozytorium w organizacji"
+description: "Zgłoś wybór projektu startowego, projektu z bazy wiedzy lub własnego pomysłu"
 title: "[PROJEKT]: "
 labels: ["projekt-studenta", "inkubator"]
 body:
@@ -7,35 +7,41 @@ body:
     attributes:
       value: |
         ### Witaj w inkubatorze projektów Koła Naukowego WSKZ! 🎉
-        Każdy członek koła realizuje wybrany projekt we własnym tempie. Możesz wybrać jeden z projektów startowych lub zgłosić własny pomysł.
-        Przed wypełnieniem tego formularza utwórz w organizacji [wskz-devops-lab](https://github.com/wskz-devops-lab) swoje repozytorium (np. `projekt-homelab-login`).
+        Wybierz projekt, który chcesz rozwijać w ramach laboratorium. Możesz realizować go samodzielnie lub w 2–3 osobowym zespole.
   - type: input
-    id: student_info
+    id: github_nick
     attributes:
-      label: Imię i Nazwisko oraz Login GitHub
-      placeholder: np. Jan Kowalski (@jkowalski)
+      label: Twój login na GitHubie (i opcjonalnie imię)
+      placeholder: np. @twoj-nick
     validations:
       required: true
   - type: dropdown
     id: project_starter
     attributes:
-      label: Wybrana ścieżka / Projekt wstępny
-      description: Wybierz sugerowany projekt startowy lub opcję własną
+      label: Wybrany projekt / ścieżka
+      description: Wybierz projekt startowy (S1–S5), projekt z Bazy Wiedzy (1–16) lub zgłoś własny pomysł
       options:
-        - "S1: Własny Homelab i konteneryzacja usług (Docker Compose / Podman)"
-        - "S2: Bezpieczny dostęp zdalny do laba (Tailscale / WireGuard + Reverse Proxy)"
+        - "--- PROJEKTY STARTOWE (NA POCZĄTEK) ---"
+        - "S1: Własny Homelab i konteneryzacja (Docker Compose / Podman)"
+        - "S2: Bezpieczny dostęp zdalny do laba (Tailscale / WireGuard + Caddy/Traefik)"
         - "S3: Lokalny serwer sztucznej inteligencji (Ollama + Open WebUI / LiteLLM / RAG)"
         - "S4: Monitoring i obserwowalność infrastruktury (Prometheus + Grafana)"
         - "S5: Lab cyberbezpieczeństwa i detekcji zagrożeń (Wazuh / Hardening / AD)"
-        - "S6: Wirtualizacja i zarządzanie maszynami (Proxmox VE / KVM / OpenNebula)"
-        - "Autorski pomysł na projekt / problem ze środowiska zawodowego"
-    validations:
-      required: true
-  - type: input
-    id: repo_url
-    attributes:
-      label: Link do Twojego repozytorium w organizacji wskz-devops-lab
-      placeholder: https://github.com/wskz-devops-lab/projekt-...
+        - "--- PROJEKTY Z BAZY WIEDZY KOŁA (PROJEKTY 1–16) ---"
+        - "Projekt 01: Wirtualizacja firmowego środowiska roboczego (KVM/QEMU, Proxmox VE)"
+        - "Projekt 02: Konteneryzacja małej usługi biznesowej (Docker, Podman, Compose)"
+        - "Projekt 03: Automatyczny build po zmianach w repozytorium (CI/CD, GitHub Actions)"
+        - "Projekt 04: Prywatna chmura i separacja usług (Nextcloud, Vaultwarden)"
+        - "Projekt 05: Automatyzacja backupu w regule 3-2-1 (BorgBackup, Restic)"
+        - "Projekt 06: Suwerenna chmura VDI na OpenNebula (AlmaLinux 9, KVM)"
+        - "Projekt 07: Architektura klastra Proxmox VE (Ceph, SDN, HA)"
+        - "Projekt 08: Klaster Kubernetes (K3s) i GitOps (ArgoCD / Flux)"
+        - "Projekt 09: Monitoring i obserwowalność infrastruktury (DCGM & Green IT)"
+        - "Projekt 11: Serwer AI i akceleracja GPU (Ollama, vLLM, RAG)"
+        - "Projekt 12: Rozproszony klaster GPU AI (Campus Gateway, LiteLLM)"
+        - "Projekt 16: Audyt bezpieczeństwa i Red Teaming (Hardening, CIS)"
+        - "--- WŁASNY PROJEKT AUTORSKI ---"
+        - "Własny pomysł na projekt / homelab / zagadnienie ze środowiska zawodowego"
     validations:
       required: true
   - type: textarea
@@ -43,9 +49,27 @@ body:
     attributes:
       label: Cel i planowany zakres projektu
       description: Co planujesz postawić, czego chcesz się nauczyć i jaki ma być końcowy efekt?
-      placeholder: np. Chcę postawić na domowym terminalu Proxmox z kilkoma kontenerami LXC/Docker (Nextcloud, Pi-hole), zabezpieczyć dostęp przez WireGuard i zautomatyzować backup na zewnętrzny dysk.
+      placeholder: np. Chcę postawić na domowym terminalu Proxmox z kilkoma kontenerami LXC/Docker (Nextcloud, Pi-hole), zabezpieczyć dostęp przez WireGuard i zautomatyzować backup.
     validations:
       required: true
+  - type: dropdown
+    id: repo_mode
+    attributes:
+      label: Repozytorium dla projektu
+      description: Jak chcesz utworzyć repozytorium?
+      options:
+        - "Utworzę repozytorium samodzielnie w organizacji wskz-devops-lab (z szablonu)"
+        - "Mam już utworzone repozytorium (podam link poniżej)"
+        - "Proszę o pomoc w utworzeniu repozytorium"
+    validations:
+      required: true
+  - type: input
+    id: repo_url
+    attributes:
+      label: Link do repozytorium (jeśli już istnieje)
+      placeholder: https://github.com/wskz-devops-lab/projekt-...
+    validations:
+      required: false
   - type: dropdown
     id: work_mode
     attributes:
