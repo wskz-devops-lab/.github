@@ -1,0 +1,57 @@
+name: "🚀 Zgłoszenie projektu studenckiego / Inkubator"
+description: "Zgłoś swój projekt wstępny lub autorski i połącz go ze swoim repozytorium w organizacji"
+title: "[PROJEKT]: "
+labels: ["projekt-studenta", "inkubator"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Witaj w inkubatorze projektów Koła Naukowego WSKZ! 🎉
+        Każdy członek koła realizuje wybrany projekt we własnym tempie. Możesz wybrać jeden z projektów startowych lub zgłosić własny pomysł.
+        Przed wypełnieniem tego formularza utwórz w organizacji [wskz-devops-lab](https://github.com/wskz-devops-lab) swoje repozytorium (np. `projekt-homelab-login`).
+  - type: input
+    id: student_info
+    attributes:
+      label: Imię i Nazwisko oraz Login GitHub
+      placeholder: np. Jan Kowalski (@jkowalski)
+    validations:
+      required: true
+  - type: dropdown
+    id: project_starter
+    attributes:
+      label: Wybrana ścieżka / Projekt wstępny
+      description: Wybierz sugerowany projekt startowy lub opcję własną
+      options:
+        - "S1: Własny Homelab i konteneryzacja usług (Docker Compose / Podman)"
+        - "S2: Bezpieczny dostęp zdalny do laba (Tailscale / WireGuard + Reverse Proxy)"
+        - "S3: Lokalny serwer sztucznej inteligencji (Ollama + Open WebUI / LiteLLM / RAG)"
+        - "S4: Monitoring i obserwowalność infrastruktury (Prometheus + Grafana)"
+        - "S5: Lab cyberbezpieczeństwa i detekcji zagrożeń (Wazuh / Hardening / AD)"
+        - "S6: Wirtualizacja i zarządzanie maszynami (Proxmox VE / KVM / OpenNebula)"
+        - "Autorski pomysł na projekt / problem ze środowiska zawodowego"
+    validations:
+      required: true
+  - type: input
+    id: repo_url
+    attributes:
+      label: Link do Twojego repozytorium w organizacji wskz-devops-lab
+      placeholder: https://github.com/wskz-devops-lab/projekt-...
+    validations:
+      required: true
+  - type: textarea
+    id: goal_and_scope
+    attributes:
+      label: Cel i planowany zakres projektu
+      description: Co planujesz postawić, czego chcesz się nauczyć i jaki ma być końcowy efekt?
+      placeholder: np. Chcę postawić na domowym terminalu Proxmox z kilkoma kontenerami LXC/Docker (Nextcloud, Pi-hole), zabezpieczyć dostęp przez WireGuard i zautomatyzować backup na zewnętrzny dysk.
+    validations:
+      required: true
+  - type: dropdown
+    id: work_mode
+    attributes:
+      label: Forma realizacji
+      options:
+        - "Indywidualnie (samodzielna praca przy wsparciu opiekuna)"
+        - "W parze / zespole (chętnie dołączę do kogoś lub zapraszam do współpracy)"
+    validations:
+      required: true

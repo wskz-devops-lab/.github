@@ -89,6 +89,33 @@ git push -u origin feat/instrukcja-wireguard-proxmox
 
 ---
 
+## 🚀 Krok 4: Własny projekt i repozytorium w organizacji (Inkubator)
+
+W naszym kole każdy student może rozwijać **własny projekt laboratoryjny** – samodzielnie lub w 2–3 osobowym zespole. Masz pełne uprawnienia do tworzenia repozytoriów wewnątrz organizacji `wskz-devops-lab`.
+
+### 1. Wybierz ścieżkę startową lub własny pomysł
+Możesz wybrać jeden z sugerowanych projektów wstępnych:
+* **S1: Własny Homelab i konteneryzacja (Docker Compose / Podman)** — postawienie i zabezpieczenie zestawu usług (Nextcloud, Vaultwarden, dashboard).
+* **S2: Bezpieczny dostęp zdalny do laba (Tailscale / WireGuard + Reverse Proxy)** — tunel do domowych maszyn bez wystawiania portów na świat.
+* **S3: Lokalny serwer sztucznej inteligencji (Ollama + Open WebUI / LiteLLM / RAG)** — lokalny model językowy z interfejsem webowym i własną bazą wiedzy.
+* **S4: Monitoring i obserwowalność (Prometheus + Grafana + Node Exporter)** — dashboard metryk i stanu hosta/kontenerów.
+* **S5: Lab detekcji zagrożeń i cyberbezpieczeństwa (Wazuh / Hardening / AD)** — analiza logów, wykrywanie incydentów i utwardzanie systemów.
+* **Własny projekt autorski:** Masz pomysł ze swojej pracy, hobby lub uczelni? Realizuj go w ramach koła!
+
+### 2. Utwórz repozytorium w organizacji
+1. Przejdź do [github.com/wskz-devops-lab](https://github.com/wskz-devops-lab) i kliknij zielony przycisk **`New repository`** (lub użyj szablonu projektu, jeśli jest dostępny).
+2. Jako **Owner** upewnij się, że wybrana jest organizacja `wskz-devops-lab`.
+3. Nazwij repozytorium według standardu: `projekt-<tematyka>-<twoj-login>` (np. `projekt-homelab-student1`).
+4. Ustaw widoczność jako **Public** i zaznacz dodanie pliku `README.md`.
+
+### 3. Zgłoś projekt na tablicy koła
+1. Przejdź do zakładki **Issues** w repozytorium [`.github`](https://github.com/wskz-devops-lab/.github/issues).
+2. Kliknij **New issue** i wybierz szablon: **🚀 Zgłoszenie projektu studenckiego / Inkubator**.
+3. Wklej link do swojego nowego repozytorium i opisz w 2-3 zdaniach, co planujesz w nim zbudować.
+4. Opiekun i koledzy z koła będą mogli śledzić Twoje postępy, pomagać w problemach i robić przegląd kodu (Code Review)!
+
+---
+
 ## 💡 Jak zgłaszać nowe pomysły lub błędy?
 
 Jeśli masz pomysł na nowe laboratorium, skrypt automatyzacji lub zauważyłeś błąd:
