@@ -53,7 +53,7 @@ body:
       description: Wybierz, kto ma mieć dostęp do Twojego kodu
       options:
         - "Prywatne (Private — dostęp masz tylko Ty i opiekun koła)"
-        - "Dla członków koła (Internal — widoczne dla wszystkich zalogowanych członków koła)"
+        - "Dla członków koła (prywatne + odczyt dla zespołu Studenci)"
         - "Publiczne (Public — publicznie widoczne w internecie)"
     validations:
       required: true

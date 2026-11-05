@@ -101,16 +101,20 @@ def main():
     repo_name = f"projekt-{slug}-{issue_user}".lower()
 
     # 4. Ustalenie widoczności
-    if "prywatne" in repo_visibility.lower():
+    # Plan GitHub Free nie obsługuje repozytoriów "internal" — "dla członków koła"
+    # realizujemy jako repozytorium prywatne z prawem odczytu dla zespołu "studenci".
+    share_with_team = False
+    vis_lower = repo_visibility.lower()
+    if "członków koła" in vis_lower or "czlonkow kola" in vis_lower:
         vis_flag = "--private"
-        vis_desc = "Prywatne (Private — dostęp masz tylko Ty i opiekun)"
-    elif "publiczne" in repo_visibility.lower():
+        vis_desc = "Dla członków koła (prywatne + odczyt dla zespołu Studenci)"
+        share_with_team = True
+    elif "publiczne" in vis_lower:
         vis_flag = "--public"
         vis_desc = "Publiczne (Public — widoczne w internecie)"
     else:
-        # domyślnie internal (dla członków koła) lub fallback do private
-        vis_flag = "--internal"
-        vis_desc = "Dla członków koła (Internal)"
+        vis_flag = "--private"
+        vis_desc = "Prywatne (Private — dostęp masz tylko Ty i opiekun)"
 
     # 5. Tworzenie repozytorium (jeśli wybrano automatyczne tworzenie)
     if "tak" in repo_create_mode.lower():
@@ -120,15 +124,12 @@ def main():
         if not repo_exists:
             # Tworzenie repozytorium
             create_res = run_cmd(["gh", "repo", "create", f"{org}/{repo_name}", vis_flag, "--clone=false", "--add-readme"], check=False)
-            if create_res.returncode != 0 and vis_flag == "--internal":
-                # Fallback do private jeśli plan GitHub nie obsługuje internal
-                vis_flag = "--private"
-                vis_desc = "Prywatne (Private — dostęp masz tylko Ty i opiekun)"
-                create_res = run_cmd(["gh", "repo", "create", f"{org}/{repo_name}", vis_flag, "--clone=false", "--add-readme"], check=False)
 
             if create_res.returncode == 0:
                 # Nadanie studentowi uprawnień Admin do jego repozytorium
                 run_cmd(["gh", "api", "-X", "PUT", f"repos/{org}/{repo_name}/collaborators/{issue_user}", "-f", "permission=admin"], check=False)
+                if share_with_team:
+                    run_cmd(["gh", "api", "-X", "PUT", f"orgs/{org}/teams/studenci/repos/{org}/{repo_name}", "-f", "permission=pull"], check=False)
                 
                 comment = (
                     f"🎉 Cześć @{issue_user}!\n\n"
