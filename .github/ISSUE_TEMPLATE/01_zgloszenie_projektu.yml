@@ -1,0 +1,84 @@
+name: "[PROJEKT] Zgłoszenie projektu studenckiego / Inkubator"
+description: "Wybierz temat z Katalogu 16 Projektów (01–16) lub zgłoś własny pomysł — automatyczne utworzenie repozytorium w organizacji"
+title: "[PROJEKT]: "
+labels: ["projekt-studenta", "inkubator"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Inkubator Projektów — DevOps & Virtualization Lab (WSKZ)
+        Formularz służy do rejestracji projektu studenckiego oraz automatycznego utworzenia dedykowanego repozytorium w organizacji **`wskz-devops-lab`**.
+        * **Lista tematów (01–16)** poniżej odpowiada wprost projektom opisanym na **[Stronie WWW Koła](https://wskz-devops-lab.github.io/strona-kola/#projekty)** oraz w **[Bazie Wiedzy MkDocs](https://wskz-devops-lab.github.io/materialy-dydaktyczne/projekty/katalog-projektow-1-16/)**.
+        * Projektom polecanym dla osób zaczynających od podstaw przypisano oznaczenie **`[START]`**.
+        * *Wskazówka:* Jeśli zamiast projektu chcesz zgłosić błąd, propozycję ćwiczenia lub moduł IaC, kliknij przycisk **`Change template`** w prawym górnym rogu formularza lub wróć do **[ekranu wyboru szablonu](https://github.com/wskz-devops-lab/.github/issues/new/choose)**.
+  - type: dropdown
+    id: project_choice
+    attributes:
+      label: Wybierz projekt lub ścieżkę
+      description: Wybierz jeden z 16 projektów katalogowych koła (z oznaczeniem poziomu trudności) lub wariant autorski
+      options:
+        - "Projekt 01 [START / ŚREDNI]: Wirtualizacja firmowego środowiska roboczego (Proxmox VE, KVM/QEMU, snapshoty)"
+        - "Projekt 02 [START]: Konteneryzacja małej usługi biznesowej (Docker, Podman, Docker Compose)"
+        - "Projekt 03 [ŚREDNI]: Automatyczny build po zmianach w repozytorium (CI/CD, GitHub Actions, Ansible)"
+        - "Projekt 04 [START / ŚREDNI]: Prywatna chmura i własny office — Self-Hosting (Nextcloud, OnlyOffice, Reverse Proxy)"
+        - "Projekt 05 [START / ŚREDNI]: System backupu przyrostowego i odtwarzania 3-2-1 (Restic, BorgBackup, szyfrowanie)"
+        - "Projekt 06 [START / ŚREDNI]: Suwerenna chmura IaaS — OpenNebula & AlmaLinux 9 (KVM, Copy-on-Write, Terraform)"
+        - "Projekt 07 [ŚREDNI]: Klaster wirtualizacji Proxmox VE — KVM, LXC, Ceph/ZFS i Rolling Upgrade"
+        - "Projekt 08 [ŚREDNI / ZAAW.]: Lokalny klaster Kubernetes i wdrożenie usługi (k3s, ArgoCD, GitOps)"
+        - "Projekt 09 [ŚREDNI]: Monitoring usług i reakcja na awarie — Green Computing & DCGM (Prometheus, Grafana)"
+        - "Projekt 10 [START / ŚREDNI]: Mini-platforma usługowa na urządzeniu ARM (Raspberry Pi, Linux, Docker, VPN)"
+        - "Projekt 11 [START -> ZAAW.]: Własny serwer AI i klaster GPU — modele LLM, RAG, VFIO i LiteLLM (Ollama, Open WebUI)"
+        - "Projekt 12 [ŚREDNI]: Bezpieczny węzeł brzegowy — reverse proxy, TLS, WAF i dostęp VPN (Caddy, Traefik, WireGuard, CrowdSec)"
+        - "Projekt 13 [ŚREDNI / ZAAW.]: Segmentacja sieci i automatyczna reakcja na atak (VLAN, nftables, Suricata, CrowdSec)"
+        - "Projekt 14 [ŚREDNI]: Szyfrowanie danych i zarządzanie sekretami (LUKS, TLS, age, SOPS, HashiCorp Vault, YubiKey)"
+        - "Projekt 15 [ŚREDNI / ZAAW.]: Rozproszone przechowywanie danych — IPFS i analiza prywatności (Kubo, swarm key, age)"
+        - "Projekt 16 [START -> ZAAW.]: Laboratorium bezpieczeństwa — analiza ruchu, honeypot i Red Teaming (Wireshark, Suricata, Cowrie, Wazuh)"
+        - "Projekt Własny [AUTORSKI]: Własny pomysł na projekt / homelab / zagadnienie ze środowiska zawodowego"
+    validations:
+      required: true
+  - type: dropdown
+    id: repo_create_mode
+    attributes:
+      label: Automatyczne utworzenie repozytorium przez bota
+      description: Czy chcesz, aby bot koła automatycznie założył repozytorium w organizacji i nadał Ci uprawnienia administratora?
+      options:
+        - "Tak — proszę bota o automatyczne założenie repozytorium"
+        - "Nie — utworzę repozytorium w organizacji samodzielnie"
+    validations:
+      required: true
+  - type: dropdown
+    id: repo_visibility
+    attributes:
+      label: Widoczność repozytorium projektu
+      description: Określ poziom dostępu do tworzonego repozytorium
+      options:
+        - "Prywatne (Private — dostęp masz tylko Ty i opiekun koła)"
+        - "Dla członków koła (prywatne + odczyt dla zespołu Studenci)"
+        - "Publiczne (Public — publicznie widoczne w internecie)"
+    validations:
+      required: true
+  - type: input
+    id: repo_keyword
+    attributes:
+      label: Krótkie słowo kluczowe do nazwy repozytorium (opcjonalnie)
+      description: "Repozytorium otrzyma nazwę: projekt-<slowo_klucz>-<twoj_login> (jeśli zostawisz puste, nazwa zostanie dobrana automatycznie do wybranego projektu)"
+      placeholder: np. docker-homelab, proxmox, ollama, wireguard, monitoring
+    validations:
+      required: false
+  - type: textarea
+    id: goal_and_scope
+    attributes:
+      label: Cel i planowany zakres projektu
+      description: Co planujesz skonfigurować, czego chcesz się nauczyć i jaki ma być końcowy efekt do demonstracji?
+      placeholder: np. Chcę uruchomić środowisko Proxmox z kontenerami LXC/Docker (Nextcloud, Vaultwarden), skonfigurować dostęp przez WireGuard + Reverse Proxy i zautomatyzować kopie zapasowe.
+    validations:
+      required: true
+  - type: dropdown
+    id: work_mode
+    attributes:
+      label: Forma realizacji
+      options:
+        - "Indywidualnie (samodzielna praca przy wsparciu opiekuna)"
+        - "W parze / zespole (chętnie dołączę do kogoś lub zapraszam do współpracy)"
+    validations:
+      required: true

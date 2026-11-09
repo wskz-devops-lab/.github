@@ -2,7 +2,7 @@
 """
 Automatyczna obsługa zgłoszenia projektu studenckiego w organizacji wskz-devops-lab.
 - Weryfikuje członkostwo studenta w organizacji
-- Pobiera preferencje widoczności (Private / Internal / Public)
+- Pobiera preferencje widoczności (Private / Dla członków koła / Public)
 - Na życzenie studenta automatycznie tworzy repozytorium w organizacji
 - Nadaje studentowi uprawnienia administratora do jego repozytorium
 - Odpowiada w Issue z podsumowaniem i instrukcją kolejnych kroków
@@ -23,7 +23,7 @@ def main():
     issue_number = os.environ.get("ISSUE_NUMBER")
     issue_user = os.environ.get("ISSUE_USER", "").strip()
     issue_body = os.environ.get("ISSUE_BODY", "")
-    
+
     if not issue_number or not issue_user:
         print("Brak ISSUE_NUMBER lub ISSUE_USER.")
         sys.exit(0)
@@ -42,11 +42,11 @@ def main():
 
     if not is_member and issue_user.lower() != "pzarnecki":
         msg = (
-            f"Cześć @{issue_user}! 👋\n\n"
-            f"Dziękujemy za zainteresowanie! Zgłoszenia w Inkubatorze projektowym organizacji **{org}** "
+            f"Cześć @{issue_user},\n\n"
+            f"Zgłoszenia w Inkubatorze projektowym organizacji **{org}** "
             f"są dostępne wyłącznie dla przyjętych członków Koła Naukowego WSKZ.\n\n"
             f"Jeśli jesteś studentem WSKZ i chcesz dołączyć do koła, wypełnij formularz zgłoszeniowy "
-            f"lub skontaktuj się z opiekunem koła drogą mailową, aby otrzymać oficjalne zaproszenie."
+            f"na stronie koła lub skontaktuj się z opiekunem koła drogą mailową, aby otrzymać zaproszenie do organizacji."
         )
         run_cmd(["gh", "issue", "comment", issue_number, "-R", f"{org}/.github", "-b", msg])
         run_cmd(["gh", "issue", "close", issue_number, "-R", f"{org}/.github"])
@@ -68,39 +68,45 @@ def main():
     repo_visibility = extract_field("Widoczność repozytorium projektu")
     repo_keyword = extract_field("Krótkie słowo kluczowe do nazwy repozytorium (opcjonalnie)")
 
-    # 3. Wyznaczenie słowa kluczowego do nazwy repozytorium
-    if repo_keyword and repo_keyword.lower() != "_brak odpowiedzi_":
+    # 3. Wyznaczenie słowa kluczowego do nazwy repozytorium (pełne pokrycie Projektów 01–16 + Własny)
+    if repo_keyword and repo_keyword.lower() not in ("_brak odpowiedzi_", "_no response_"):
         slug = re.sub(r"[^a-zA-Z0-9_-]", "", repo_keyword.lower().replace(" ", "-"))
     else:
         c = project_choice.lower()
-        if "s1" in c or "docker" in c or "homelab" in c:
-            slug = "homelab-docker"
-        elif "s2" in c or "wireguard" in c or "tailscale" in c:
-            slug = "vpn-access"
-        elif "s3" in c or "ai" in c or "ollama" in c:
-            slug = "ai-server"
-        elif "s4" in c or "monitoring" in c or "prometheus" in c:
-            slug = "monitoring"
-        elif "s5" in c or "wazuh" in c or "cyberbezpiecze" in c:
-            slug = "security-lab"
-        elif "01" in c or "wirtualizacja" in c:
-            slug = "kvm-wirtualizacja"
-        elif "03" in c or "cicd" in c:
+        if "projekt 01" in c or "wirtualizacja firmowego" in c:
+            slug = "wirtualizacja-kvm"
+        elif "projekt 02" in c or "konteneryzacja" in c or "s1" in c:
+            slug = "konteneryzacja-docker"
+        elif "projekt 03" in c or "automatyczny build" in c or "ci/cd" in c:
             slug = "cicd-automation"
-        elif "04" in c or "chmura" in c:
-            slug = "private-cloud"
-        elif "05" in c or "backup" in c:
-            slug = "backup-lab"
-        elif "06" in c or "opennebula" in c:
-            slug = "opennebula-vdi"
-        elif "07" in c or "proxmox" in c:
+        elif "projekt 04" in c or "prywatna chmura" in c or "nextcloud" in c:
+            slug = "prywatna-chmura"
+        elif "projekt 05" in c or "backup" in c:
+            slug = "backup-system"
+        elif "projekt 06" in c or "opennebula" in c:
+            slug = "opennebula-iaas"
+        elif "projekt 07" in c or "klaster wirtualizacji proxmox" in c:
             slug = "proxmox-cluster"
-        elif "08" in c or "kubernetes" in c or "k3s" in c:
-            slug = "k8s-cluster"
-        elif "16" in c or "red teaming" in c:
-            slug = "red-teaming"
+        elif "projekt 08" in c or "kubernetes" in c or "k3s" in c:
+            slug = "kubernetes-k3s"
+        elif "projekt 09" in c or "monitoring" in c or "s4" in c:
+            slug = "monitoring-grafana"
+        elif "projekt 10" in c or "arm" in c or "raspberry" in c:
+            slug = "platforma-arm"
+        elif "projekt 11" in c or "serwer ai" in c or "ollama" in c or "s3" in c:
+            slug = "serwer-ai-llm"
+        elif "projekt 12" in c or "węzeł brzegowy" in c or "wezel brzegowy" in c or "waf" in c or "s2" in c:
+            slug = "brama-waf-vpn"
+        elif "projekt 13" in c or "segmentacja sieci" in c:
+            slug = "segmentacja-sieci"
+        elif "projekt 14" in c or "szyfrowanie" in c or "sekret" in c:
+            slug = "szyfrowanie-sekrety"
+        elif "projekt 15" in c or "ipfs" in c:
+            slug = "rozproszone-ipfs"
+        elif "projekt 16" in c or "red teaming" in c or "honeypot" in c or "s5" in c:
+            slug = "security-redteam"
         else:
-            slug = "projekt-lab"
+            slug = "homelab"
 
     repo_name = f"projekt-{slug}-{issue_user}".lower()
 
@@ -122,63 +128,59 @@ def main():
 
     # 5. Tworzenie repozytorium (jeśli wybrano automatyczne tworzenie)
     if "tak" in repo_create_mode.lower():
-        # Sprawdź czy repo już istnieje
         repo_exists = run_cmd(["gh", "repo", "view", f"{org}/{repo_name}"], check=False).returncode == 0
-        
+
         if not repo_exists:
-            # Tworzenie repozytorium
             create_res = run_cmd(["gh", "repo", "create", f"{org}/{repo_name}", vis_flag, "--clone=false", "--add-readme"], check=False)
 
             if create_res.returncode == 0:
-                # Nadanie studentowi uprawnień Admin do jego repozytorium
                 run_cmd(["gh", "api", "-X", "PUT", f"repos/{org}/{repo_name}/collaborators/{issue_user}", "-f", "permission=admin"], check=False)
                 if share_with_team:
                     run_cmd(["gh", "api", "-X", "PUT", f"orgs/{org}/teams/studenci/repos/{org}/{repo_name}", "-f", "permission=pull"], check=False)
-                
+
                 comment = (
-                    f"🎉 Cześć @{issue_user}!\n\n"
-                    f"Twoje repozytorium laboratoryjne zostało **automatycznie utworzone** przez bota koła! 🚀\n\n"
-                    f"👉 **Adres repozytorium:** [**github.com/{org}/{repo_name}**](https://github.com/{org}/{repo_name})\n"
+                    f"### [OK] Repozytorium projektu utworzone dla @{issue_user}\n\n"
+                    f"Twoje repozytorium laboratoryjne zostało automatycznie skonfigurowane w organizacji **`{org}`**.\n\n"
+                    f"* **Wybrany temat:** `{project_choice}`\n"
+                    f"* **Adres repozytorium:** [**github.com/{org}/{repo_name}**](https://github.com/{org}/{repo_name})\n"
                     f"* **Widoczność:** `{vis_desc}`\n"
-                    f"* **Twoje uprawnienia:** Administrator (masz pełną swobodę tworzenia gałęzi, tagów i konfiguracji)\n\n"
-                    f"### 📋 Jak zacząć pracę:\n"
-                    f"1. **Sklonuj repozytorium na swój komputer:**\n"
+                    f"* **Twoje uprawnienia:** `Admin` (pełny dostęp do gałęzi, tagów i ustawień repozytorium)\n\n"
+                    f"#### Kolejne kroki techniczne:\n"
+                    f"1. **Sklonuj repozytorium na komputer roboczy:**\n"
                     f"   ```bash\n"
                     f"   git clone git@github.com:{org}/{repo_name}.git\n"
                     f"   cd {repo_name}\n"
                     f"   ```\n"
-                    f"2. **Dodaj pierwsze pliki:** zaktualizuj `README.md`, dodaj pliki konfiguracyjne (`compose.yaml`, skrypty, playbooki) i zrób push.\n"
-                    f"3. **Konsultacje i pytania:** ten wątek (Issue #{issue_number}) służy do bieżącej dyskusji nad Twoim projektem. Pytaj śmiało o wszystko!\n\n"
-                    f"Powodzenia w realizacji! 💪"
+                    f"2. **Rozpocznij pracę:** uzupełnij `README.md` o cel i architekturę rozwiązania, dodaj pliki konfiguracyjne (`compose.yaml`, skrypty, playbooki) oraz plik `.gitignore`.\n"
+                    f"3. **Konsultacje i pytania:** niniejszy wątek (Issue #{issue_number}) służy do bieżącej dyskusji nad projektem i zgłaszania postępów."
                 )
             else:
                 comment = (
-                    f"Cześć @{issue_user}! 👋\n\n"
-                    f"Wystąpił problem przy automatycznym tworzeniu repozytorium: `{create_res.stderr.strip()}`.\n"
-                    f"Możesz założyć je ręcznie pod adresem: https://github.com/organizations/{org}/repositories/new "
+                    f"### [INFO] Wymagane ręczne utworzenie repozytorium dla @{issue_user}\n\n"
+                    f"Wystąpił błąd podczas automatycznego zakładania repozytorium: `{create_res.stderr.strip()}`.\n"
+                    f"Możesz utworzyć je bezpośrednio pod adresem: https://github.com/organizations/{org}/repositories/new "
                     f"podając nazwę: `{repo_name}`."
                 )
         else:
             comment = (
-                f"Cześć @{issue_user}! 👋\n\n"
-                f"Repozytorium [**{org}/{repo_name}**](https://github.com/{org}/{repo_name}) już istnieje w organizacji!\n"
-                f"Możesz od razu kontynuować w nim swoją pracę."
+                f"### [INFO] Repozytorium już istnieje (@{issue_user})\n\n"
+                f"Repozytorium [**{org}/{repo_name}**](https://github.com/{org}/{repo_name}) jest już dostępne w organizacji.\n"
+                f"Możesz od razu kontynuować w nim pracę."
             )
     else:
         # Tryb manualny
         comment = (
-            f"Cześć @{issue_user}! 👋\n\n"
-            f"Dzięki za zgłoszenie wyboru projektu do Inkubatora Koła Naukowego WSKZ!\n\n"
-            f"### 📋 Twoje kolejne kroki:\n"
+            f"### [PROJEKT] Zarejestrowano zgłoszenie projektu dla @{issue_user}\n\n"
+            f"* **Wybrany temat:** `{project_choice}`\n\n"
+            f"#### Kolejne kroki (tryb samodzielnego utworzenia repozytorium):\n"
             f"1. **Utwórz swoje repozytorium w organizacji:**\n"
             f"   * Przejdź do: https://github.com/organizations/{org}/repositories/new\n"
-            f"   * Jako **Owner** upewnij się, że wybrana jest organizacja `{org}`\n"
-            f"   * Proponowana nazwa repozytorium: **`{repo_name}`**\n"
-            f"   * Wybierz widoczność: **`{vis_desc}`**\n"
-            f"   * Zaznacz dodanie pliku `README.md`\n"
+            f"   * Jako **Owner** wybierz organizację `{org}`\n"
+            f"   * Zalecana nazwa repozytorium: **`{repo_name}`**\n"
+            f"   * Widoczność: **`{vis_desc}`**\n"
+            f"   * Zaznacz utworzenie pliku `README.md`\n"
             f"2. **Wklej link do repozytorium w komentarzu poniżej.**\n"
-            f"3. **Sklonuj repozytorium na komputer i rozpocznij pracę.**\n\n"
-            f"W razie wątpliwości pytaj w komentarzach poniżej lub na Zulipie!"
+            f"3. **Sklonuj repozytorium lokalnie i rozpocznij pracę.**"
         )
 
     run_cmd(["gh", "issue", "comment", issue_number, "-R", f"{org}/.github", "-b", comment])

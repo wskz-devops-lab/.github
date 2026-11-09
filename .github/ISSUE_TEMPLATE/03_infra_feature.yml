@@ -1,0 +1,59 @@
+name: "[INFRA / IaC] Moduł infrastruktury lub automatyzacja"
+description: "Zadanie wdrożenia lub rozbudowy kodu Ansible, OpenTofu/Terraform, Docker lub konfiguracji klastra"
+title: "[INFRA]: "
+labels: ["infrastructure", "iac"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Zadanie inżynieryjne — Infrastruktura & Automatyzacja (IaC)
+        Formularz służy do zgłaszania nowych modułów automatyzacji, ról Ansible, konfiguracji Terraform/OpenTofu lub usług kontenerowych.
+        * *Wskazówka:* Aby zmienić typ zgłoszenia, użyj przycisku **`Change template`** u góry strony.
+  - type: input
+    id: feature-title
+    attributes:
+      label: Nazwa modułu / skryptu
+      placeholder: np. Playbook Ansible do zautomatyzowanego backupu przyrostowego BorgBackup
+    validations:
+      required: true
+  - type: dropdown
+    id: target-platform
+    attributes:
+      label: Środowisko docelowe
+      options:
+        - "Proxmox VE 8.x / 9.x (Track A: KVM / LXC / Ceph / ZFS / SDN)"
+        - "OpenNebula 6.x (Track B: AlmaLinux 9 / VDI / Golden Image)"
+        - "Host Linux (Debian/Ubuntu LTS lub RHEL/AlmaLinux/Fedora)"
+        - "Kontenery i Orkiestracja (Docker / Podman / Kubernetes k3s / ArgoCD)"
+        - "Sieć, VPN i Brzeg Sieci (WireGuard / Tailscale / Caddy / Traefik / WAF)"
+        - "Infrastruktura AI i Monitoring (Ollama / vLLM / LiteLLM / Prometheus / Grafana)"
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Cel i oczekiwany rezultat
+      description: Co ten moduł ma zautomatyzować i jak wpłynie na środowisko laboratoryjne koła?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Kryteria odbioru (Definition of Done)
+      value: |
+        - [ ] Skrypt / playbook uruchamia się bez błędów w środowisku testowym
+        - [ ] Składnia zweryfikowana linterem (np. ansible-lint, shellcheck, terraform fmt)
+        - [ ] Przygotowano instrukcję uruchomienia (README w module)
+        - [ ] Brak zahardkodowanych haseł i kluczy prywatnych (zmienne w .env.example lub vault)
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Szacowany poziom trudności
+      options:
+        - "[START] Początkujący (Good First Issue)"
+        - "[ŚREDNI] Średniozaawansowany"
+        - "[ZAAWANSOWANY] Zaawansowany (wymaga konsultacji z opiekunem)"
+    validations:
+      required: true

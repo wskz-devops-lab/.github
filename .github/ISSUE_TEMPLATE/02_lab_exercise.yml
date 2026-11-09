@@ -1,0 +1,57 @@
+name: "[DOCS / LAB] Nowe ćwiczenie lub poradnik do Bazy Wiedzy"
+description: "Zaproponuj nową instrukcję laboratoryjną lub rozdział do dokumentacji Docs-as-Code (MkDocs)"
+title: "[LAB]: "
+labels: ["docs", "materialy-dydaktyczne"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Propozycja materiału dydaktycznego — Baza Wiedzy (MkDocs)
+        Wypełnij poniższe pola, aby zgłosić propozycję nowego poradnika lub ćwiczenia do repozytorium [`materialy-dydaktyczne`](https://github.com/wskz-devops-lab/materialy-dydaktyczne).
+        * *Wskazówka:* Aby zmienić typ zgłoszenia (np. na wybór projektu studenckiego), użyj przycisku **`Change template`** u góry strony.
+  - type: input
+    id: topic
+    attributes:
+      label: Temat ćwiczenia / laboratorium
+      placeholder: np. Konfiguracja WireGuard w kontenerze LXC z Proxmox SDN
+    validations:
+      required: true
+  - type: checkboxes
+    id: track
+    attributes:
+      label: Obszar tematyczny
+      options:
+        - label: "Track A: Wirtualizacja i klastry Proxmox VE (KVM, LXC, ZFS/Ceph, SDN)"
+        - label: "Track B: Suwerenna chmura OpenNebula VDI (AlmaLinux 9, KVM, CoW)"
+        - label: "Konteneryzacja, Kubernetes (k3s) i automatyzacja CI/CD"
+        - label: "Infrastructure as Code (Ansible / OpenTofu / Terraform)"
+        - label: "Własny serwer AI i klastry GPU (Ollama / vLLM / LiteLLM / RAG)"
+        - label: "Cyberbezpieczeństwo, sieci VPN/WAF i audyty Red Teaming"
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Wymagania wstępne i zasoby sprzętowe
+      description: Co jest potrzebne do wykonania ćwiczenia?
+      value: |
+        - Minimalny RAM / vCPU: 
+        - Wymagany system bazowy (Debian/Ubuntu lub AlmaLinux/Fedora): 
+        - Wymagane narzędzia (Docker / Podman / Ansible / KVM): 
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Konspekt i kroki do wykonania
+      placeholder: Wypisz w punktach, co uczestnik ma skonfigurować i jaki ma być końcowy efekt weryfikacji ćwiczenia.
+    validations:
+      required: true
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: Szacowany poziom trudności
+      options:
+        - "[START] Początkujący (Good First Issue)"
+        - "[ŚREDNI] Średniozaawansowany"
+        - "[ZAAWANSOWANY] Zaawansowany"
+    validations:
+      required: true

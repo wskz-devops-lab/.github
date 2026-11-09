@@ -1,0 +1,48 @@
+name: "[BUG] Błąd w konfiguracji, skrypcie lub środowisku laboratoryjnym"
+description: "Zgłoś problem z działaniem playbooka, szablonu VM, dokumentacji lub portalu koła"
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Zgłoszenie błędu technicznego (Bug Report)
+        Opisz napotkany problem, aby ułatwić jego odtworzenie i przygotowanie poprawki w odpowiednim repozytorium.
+        * *Wskazówka:* Aby zmienić typ zgłoszenia, użyj przycisku **`Change template`** u góry strony.
+  - type: dropdown
+    id: project
+    attributes:
+      label: Którego repozytorium dotyczy problem?
+      options:
+        - "architektura-proxmox (Track A: Proxmox VE, KVM, LXC, Ceph/ZFS)"
+        - "architektura-vdi-opennebula (Track B: OpenNebula, AlmaLinux 9, VDI)"
+        - "materialy-dydaktyczne (Baza Wiedzy MkDocs — Projekty 01–16 i poradniki)"
+        - "pakiet-red-teaming (Skrypt audytu bezpieczeństwa 5 filarów)"
+        - "klaster-gpu-ai (Rozproszony klaster GPU AI & Campus Gateway)"
+        - "strona-kola (Oficjalny portal internetowy koła WWW)"
+        - ".github (Profil organizacji, formularze Issues i automatyzacja bota)"
+    validations:
+      required: true
+  - type: textarea
+    id: error-logs
+    attributes:
+      label: Komunikat błędu / Logi z terminala
+      description: Wklej dokładny wynik błędu (np. z Ansible, Terraform, Docker, journalctl, dmesg)
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Kroki do odtworzenia błędu
+      value: |
+        1. Wykonałem polecenie / akcję: `...`
+        2. System zgłosił komunikat: `...`
+        3. Oczekiwany rezultat vs faktyczny rezultat: 
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Środowisko uruchomieniowe
+      placeholder: np. Proxmox VE 8.3, AlmaLinux 9.4, Debian 12, WSL2, kernel 6.8...

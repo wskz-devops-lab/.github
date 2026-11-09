@@ -1,0 +1,38 @@
+name: "[SEC / RED-TEAM] Test audytu bezpieczeństwa lub reguła detekcji"
+description: "Dodanie nowego testu weryfikującego izolację wirtualizacji (5 filarów ochrony) lub reguły SIEM/WAF"
+title: "[SEC-TEST]: "
+labels: ["security", "red-teaming"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### Specyfikacja testu bezpieczeństwa — Red Teaming & Hardening
+        Formularz służy do zgłaszania nowych testów audytowych dla repozytorium [`pakiet-red-teaming`](https://github.com/wskz-devops-lab/pakiet-red-teaming) oraz scenariuszy dla Projektów 12–16.
+        * *Wskazówka:* Aby zmienić typ zgłoszenia, użyj przycisku **`Change template`** u góry strony.
+  - type: dropdown
+    id: pillar
+    attributes:
+      label: Filar ochrony (zgodnie z architekturą audytu koła)
+      description: Do którego z 5 filarów bezpieczeństwa zalicza się ten test?
+      options:
+        - "Filar 1: Container Escape & User Namespace (izolacja kontenerów LXC/Docker i mapowanie subuid)"
+        - "Filar 2: Resource Starvation & DoS Immunity (limity cgroups v2, pids.max, ochrona RAM/Storage)"
+        - "Filar 3: Network Segmentation & Lateral Movement (izolacja mostów, VLAN/VXLAN, pve-firewall, WAF)"
+        - "Filar 4: Portal API & Gateway Hardening (biała lista komend, blokada root shell, autoryzacja)"
+        - "Filar 5: Zero Residual Data & Higiena RODO (czyszczenie /tmp, izolacja historii, sanitizacja --purge 1)"
+    validations:
+      required: true
+  - type: textarea
+    id: attack-scenario
+    attributes:
+      label: Scenariusz wektora ataku / audytu
+      description: Jaki wektor podatności badamy i jakie jest potencjalne ryzyko dla infrastruktury?
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Proponowany sposób automatycznej weryfikacji i mitygacji
+      description: W jaki sposób skrypt audytowy ma sprawdzić podatność (polecenie powłoki, inspekcja konfiguracji LXC/KVM, reguła nftables/Suricata) oraz jak wygląda poprawka (hardening)?
+    validations:
+      required: true

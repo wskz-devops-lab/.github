@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "[PORTAL WWW] Katalog 16 Projektów i Dobór Ścieżki"
+    url: https://wskz-devops-lab.github.io/strona-kola/#projekty
+    about: "Przejrzyj opisy projektów 01–16 i skorzystaj z interaktywnego konfiguratora wyboru ścieżki przed zgłoszeniem."
+  - name: "[BAZA WIEDZY] Dokumentacja Techniczna i Poradniki (MkDocs)"
+    url: https://wskz-devops-lab.github.io/materialy-dydaktyczne/
+    about: "Instrukcje wdrożeniowe krok po kroku, wymagania sprzętowe i przewodniki inżynierskie."
+  - name: "[INSTRUKCJA] Przewodnik Członka Koła (Git & Workflow)"
+    url: https://github.com/wskz-devops-lab/.github/blob/main/INSTRUKCJA_DLA_STUDENTOW.md
+    about: "Sprawdź, jak skonfigurować klucze SSH, pracować z gałęziami i oddawać zadania przez Pull Request."
