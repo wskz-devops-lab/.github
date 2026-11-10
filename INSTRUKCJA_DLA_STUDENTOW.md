@@ -46,7 +46,7 @@ Projektom polecanym osobom zaczynającym od podstaw przypisano oznaczenie **`[ST
 * **Projekt Własny `[AUTORSKI]`:** Własny pomysł na projekt / homelab / zagadnienie ze środowiska zawodowego
 
 ### 2. Zgłoś projekt w Issues (automatyczne założenie repozytorium)
-1. Przejdź do ekranu wyboru formularza: **[Otwórz formularze Issues koła](https://github.com/wskz-devops-lab/.github/issues/new/choose)** i wybierz pierwszą pozycję: **`[PROJEKT] Zgłoszenie projektu studenckiego / Inkubator`** (lub otwórz [formularz bezpośrednio](https://github.com/wskz-devops-lab/.github/issues/new?template=01_zgloszenie_projektu.yml)).
+1. Otwórz bezpośrednio: 👉 **[Formularz zapisu na projekt (01–16)](https://github.com/wskz-devops-lab/.github/issues/new?template=01_zgloszenie_projektu.yml)** (lub przejdź do [ekranu wyboru wszystkich formularzy Issues](/../../issues/new/choose)).
 2. Wybierz z listy swój projekt (`01–16` lub `Projekt Własny`), wskaż preferowaną widoczność repozytorium (`Prywatne`, `Dla członków koła` lub `Publiczne`) oraz zaznacz opcję **automatycznego utworzenia repozytorium przez bota**.
 3. Po wysłaniu zgłoszenia bot koła w ciągu kilkudziesięciu sekund:
    * utworzy w organizacji repozytorium `projekt-<temat>-<twoj_login>`,
@@ -107,7 +107,7 @@ git push -u origin feat/instrukcja-wireguard-proxmox
 
 Na ekranie wyboru **[New Issue (`/issues/new/choose`)](https://github.com/wskz-devops-lab/.github/issues/new/choose)** oprócz zgłoszenia projektu studenckiego dostępne są jeszcze 4 wyspecjalizowane formularze techniczne (w każdym formularzu możesz też przełączyć szablon przyciskiem **`Change template`** u góry strony):
 
-1. **`[PROJEKT] Zgłoszenie projektu studenckiego / Inkubator`** — wybór tematu `01–16` lub własnego projektu.
+1. **`[PROJEKT] Zapis na projekt z listy 16 tematów (lub własny pomysł)`** — wybór tematu `01–16` lub własnego projektu ([otwórz formularz](https://github.com/wskz-devops-lab/.github/issues/new?template=01_zgloszenie_projektu.yml)).
 2. **`[DOCS / LAB] Nowe ćwiczenie lub poradnik do Bazy Wiedzy`** — propozycja nowej instrukcji do repozytorium `materialy-dydaktyczne`.
 3. **`[INFRA / IaC] Moduł infrastruktury lub automatyzacja`** — propozycja playbooka Ansible, modułu Terraform lub konfiguracji klastra.
 4. **`[SEC / RED-TEAM] Test audytu bezpieczeństwa lub reguła detekcji`** — nowy scenariusz testowy dla 5 filarów bezpieczeństwa lub reguła WAF/SIEM.

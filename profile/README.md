@@ -45,16 +45,18 @@ Ekosystem koła podzielony jest na dedykowane repozytoria zadaniowe:
 
 ## Wybór Projektu i Formularze Zgłoszeń (Issues)
 
-Każdy członek koła realizuje wybrany projekt laboratoryjny (z katalogu **01–16** lub temat autorski) w dedykowanym repozytorium wewnątrz organizacji `wskz-devops-lab`. Bot koła może automatycznie założyć repozytorium i nadać uprawnienia administratora po wypełnieniu formularza.
+Każdy członek koła realizuje wybrany projekt laboratoryjny (z katalogu **01–16** lub temat autorski) w dedykowanym repozytorium wewnątrz organizacji `wskz-devops-lab`. Bot koła automatycznie tworzy repozytorium i nadaje uprawnienia administratora po wysłaniu formularza.
 
-* **[FORMULARZE ISSUES]** [**Otwórz ekran wyboru formularza zgłoszeniowego (Issues)**](https://github.com/wskz-devops-lab/.github/issues/new/choose)  
-  Dostępne szablony zgłoszeń:
-  1. **`[PROJEKT] Zgłoszenie projektu studenckiego / Inkubator`** — wybór tematu `01–16` lub własnego projektu i automatyczne założenie repozytorium ([link bezpośredni](https://github.com/wskz-devops-lab/.github/issues/new?template=01_zgloszenie_projektu.yml)).
-  2. **`[DOCS / LAB] Nowe ćwiczenie lub poradnik do Bazy Wiedzy`** — propozycja instrukcji do MkDocs.
-  3. **`[INFRA / IaC] Moduł infrastruktury lub automatyzacja`** — zadanie wdrożenia kodu Ansible / Terraform / Docker.
-  4. **`[SEC / RED-TEAM] Test audytu bezpieczeństwa lub reguła detekcji`** — nowy test dla 5 filarów ochrony lub SIEM/WAF.
-  5. **`[BUG] Błąd w konfiguracji, skrypcie lub środowisku laboratoryjnym`** — zgłoszenie problemu technicznego.
-* **[PRZEWODNIK]** [**Instrukcja dla studentów krok po kroku (Git, SSH, Inkubator projektów)**](https://github.com/wskz-devops-lab/.github/blob/main/INSTRUKCJA_DLA_STUDENTOW.md)
+👉 **[KLIKNIJ TUTAJ, ABY OTWORZYĆ FORMULARZ ZAPISU NA PROJEKT (01–16)](https://github.com/wskz-devops-lab/.github/issues/new?template=01_zgloszenie_projektu.yml)**
+
+Dostępne szablony zgłoszeń w [ekranie wyboru szablonów (/issues/new/choose)](https://github.com/wskz-devops-lab/.github/issues/new/choose):
+1. **`[PROJEKT] Zapis na projekt z listy 16 tematów (lub własny pomysł)`** — wybór tematu `01–16` lub autorskiego i automatyczne założenie repozytorium ([otwórz formularz](https://github.com/wskz-devops-lab/.github/issues/new?template=01_zgloszenie_projektu.yml)).
+2. **`[DOCS / LAB] Nowe ćwiczenie lub poradnik do Bazy Wiedzy`** — propozycja instrukcji do MkDocs.
+3. **`[INFRA / IaC] Moduł infrastruktury lub automatyzacja`** — zadanie wdrożenia kodu Ansible / Terraform / Docker.
+4. **`[SEC / RED-TEAM] Test audytu bezpieczeństwa lub reguła detekcji`** — nowy test dla 5 filarów ochrony lub SIEM/WAF.
+5. **`[BUG] Błąd w konfiguracji, skrypcie lub środowisku laboratoryjnym`** — zgłoszenie problemu technicznego.
+
+📖 **[PRZEWODNIK]** [**Instrukcja dla studentów krok po kroku (Git, SSH, Inkubator projektów)**](https://github.com/wskz-devops-lab/.github/blob/main/INSTRUKCJA_DLA_STUDENTOW.md)
 
 ---
 

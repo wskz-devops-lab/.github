@@ -1,5 +1,5 @@
-name: "[PROJEKT] Zgłoszenie projektu studenckiego / Inkubator"
-description: "Wybierz temat z Katalogu 16 Projektów (01–16) lub zgłoś własny pomysł — automatyczne utworzenie repozytorium w organizacji"
+name: "[PROJEKT] Zapis na projekt z listy 16 tematów (lub własny pomysł)"
+description: "Wybierz jeden z 16 tematów laboratoryjnych (lub własny projekt) — bot utworzy dla Ciebie repozytorium w organizacji"
 title: "[PROJEKT]: "
 labels: ["projekt-studenta", "inkubator"]
 body:
